@@ -1,0 +1,197 @@
+<?php 
+
+
+?>
+
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title><?php print $company_name ; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="Microsoft FrontPage 5.0" name="GENERATOR">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="description" content="Fast downloads of the latest free software!" />
+
+<meta name="keywords" content="download software freeware shareware games and software sprogram" />
+
+<script language="javascript" src="calendar/calendar.js"></script>
+</head>
+
+<body lang="en-us" style="layout-grid: none none none; font-size: 10pt; color: black; font-family: Verdana; background-color: white">
+
+<span>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1" height="62">
+ 
+ <tr>
+    <td width="13%" bgcolor="#1E3C7B" height="37">
+    </font>
+    </td>
+    <td width="66%" bgcolor="#1E3C7B" height="37">
+    <p align="center">   <font color="#FFFFFF" face="verdana"> <b>  <?php print $company_name ; ?> </b></td>
+    <td width="21%" bgcolor="#1E3C7B" height="37" valign="bottom">
+    <p align="center"><font color="#FFFFFF" face="verdana"><font size=1>
+Developed By: Ayaz Haider <br>ayaz.haider@yahoo.com | +92-343-3091454
+
+	</td>
+  </tr>
+  <tr>
+    <td width="13%" bgcolor="#517DBF" height="25" align="right">
+
+   <font color="#FFFFFF" size=1>&nbsp;<font color="#FFFFFF" face=verdana size=1><a href="index.php" style="text-decoration: none"><font color="#FFFFFF" size=2>Dashboard</font></a></font></font></span></td>
+    <td width="66%" bgcolor="#517DBF" height="25">
+
+    <font color="#FFFFFF">
+
+<span>
+    <font size="2">
+<?php 
+echo'
+&nbsp; &nbsp; | &nbsp; &nbsp;
+<a href="?cmd=c" style="text-decoration: none"><font color="#FFFFFF" size=2 face="verdana">Master Record</font></a>
+';
+
+echo '&nbsp; &nbsp; | &nbsp; &nbsp;
+<a href="?cmd=new" style="text-decoration: none"><font color="#FFFFFF" size=2 face="verdana">GP Out Ward-Inward Entry</font></a>&nbsp; &nbsp; | &nbsp; &nbsp;
+';
+
+echo'
+<a href="?cmd=report" style="text-decoration: none"><font color="#FFFFFF" size=2 face="verdana" >Report</font></a>&nbsp; &nbsp; | &nbsp; &nbsp;
+';
+if ($_SESSION['GPMA_type'] == 1){
+echo '
+<a href="?cmd=set" style="text-decoration: none"><font color="#FFFFFF" size=2 face="verdana">Manage</font></a>&nbsp; &nbsp; | &nbsp; &nbsp;
+';}
+echo'
+<a href="logout.php" style="text-decoration: none">
+	<font color="FFFFFF" face="verdana" size=2>Logout</a>
+';
+?>
+    </font>
+</span>
+
+    </td>
+    <td width="21%" bgcolor="#517DBF" height="25" valign="top">
+    <p align="center">
+
+
+	</td>
+  </tr>
+</table>
+
+
+<?php
+  $cmd = @$_GET['cmd'] ;
+
+  if ($cmd == "new"){
+ echo'<span style="font-size: 10pt"> <font face="Verdana" color="#00376F"><b>&nbsp; Add New -->> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+<a href="new_gp.php?pid=onr" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Non Returnable</font>&nbsp; | &nbsp;</a>
+<a href="new_gp.php?pid=or" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Returnable</font>&nbsp; | &nbsp;</a>
+
+<a href="new_gp.php?pid=inr" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Non Returnable</font>&nbsp; | &nbsp;</a>
+
+<a href="new_gp.php?pid=ir" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Returnable</font></span></a>&nbsp; | &nbsp;
+<a href="receipts.php?" style="text-decoration: none"><font color="#00376F" size=2 face="verdana">Receipt Item</font></a>
+	
+<span style="font-size: 1pt"><br>
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+</span></font>
+';
+}
+
+  if ($cmd == "report"){
+ echo' <span style="font-size: 10pt"> <font face="Verdana" color="#00376F"><b>&nbsp; Report -->> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+<a href="report.php?pid=onr" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Non Returnable</font>&nbsp; | &nbsp;</a>
+<a href="report.php?pid=or" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Returnable</font>&nbsp; | &nbsp;</a>
+
+<a href="report.php?pid=inr" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Non Returnable</font>&nbsp; | &nbsp;</a>
+
+<a href="report.php?pid=ir" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Returnable</font></span></a>&nbsp; | &nbsp;
+<a href="ret_report.php" style="text-decoration: none"><font color="#00376F" size=2 face="verdana">Returnable Pending</font></a>
+	<span style="font-size: 1pt"><br>
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+</span></font>
+
+';
+}
+
+  if ($cmd == "today"){
+ echo' <span style="font-size: 10pt"> <font face="Verdana" color="#00376F"><b>&nbsp; Daily Report -> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+<a href="daily_report_gp.php?report_type=ow_gp_non_ret" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Non Returnable</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a href="daily_report_gp.php?report_type=ow_gp_ret" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Outward Returnable</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+<a href="daily_report_gp.php?report_type=in_gp_non_ret" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Non Returnable</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+<a href="daily_report_gp.php?report_type=in_gp_ret" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Inward Returnable</font></span></a>
+<span style="font-size: 1pt"><br>
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+</span></font>
+
+';
+} 
+if ($cmd == "set"){
+if ($_SESSION['GPMA_type'] == 1){
+
+
+ echo' <span style="font-size: 10pt"> <font face="Verdana" color="#00376F"><b>&nbsp; Manage -> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+
+<a href="index.php?pid=user" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Users</font> </a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="index.php?pid=cinfo" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Company Info</font> </a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="index.php?pid=reg" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Regional Settings</font></span></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a  href="ch_pass.php?pid=reg" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Change Password</font></span></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="index.php?pid=bak" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Backup</font></span></a>
+<span style="font-size: 1pt"><br>
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+</span></font>
+
+';
+}
+}
+if ($cmd == "c"){
+ echo' <span style="font-size: 10pt"> <font face="Verdana" color="#00376F"><b>&nbsp; Tools -> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+<a href="index.php?pid=v" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Vendors / Party Name</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+
+<a href="index.php?pid=depart" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Departments</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+
+
+<a href="index.php?pid=unit" style="text-decoration: none"><span style="font-size: 10pt"><font face="Verdana" color="#00376F">
+Units</font></span></a>
+<span style="font-size: 1pt"><br>
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+</span></font>
+
+';
+}
+echo'<br>';
+?>

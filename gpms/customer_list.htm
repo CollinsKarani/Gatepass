@@ -1,0 +1,87 @@
+<?php
+// Sorting
+$sort=@$_GET['sort'];
+$sort_name='<a href="?pid=c_list&sort=name" style="text-decoration: none"><font color="#FFFFFF">';
+$sort_phone='<a href="?pid=c_list&sort=phone" style="text-decoration: none"><font color="#FFFFFF">';
+$sort_address='<a href="?pid=c_list&sort=address" style="text-decoration: none"><font color="#FFFFFF">';
+if ($sort == NULL || $sort == 'name'){$sort ="name";$sort_name='<b><font face="Times New Roman" size="2">&#9660;</font></b>';}
+if ($sort == 'phone'){$sort_phone='<b><font face="Times New Roman" size="2">&#9660;</font></b>';}
+if ($sort == 'address'){$sort_address='<b><font face="Times New Roman" size="2">&#9660;</font></b>';}
+
+
+//Limit
+$num_sup=0;
+$num_total=0;
+$limit=@$_GET['limit'];
+if ($limit == Null){$limit=0;}
+$start=$limit;
+$end=25;
+
+mysql_select_db($database_connection, $connection);
+$query = "SELECT * FROM `vendors`  order by `".$sort."` ASC"; 
+$query_limit=$query." LIMIT $start, $end";
+$result_limit = mysql_query($query_limit) or die("Couldn't execute Limit query");
+
+
+$result = mysql_query($query) or die("Couldn't execute Total query");
+while ($set_row = mysql_fetch_array($result)){
+$num_total=$num_total+ 1;}
+echo'
+<p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1" height="28">
+  <tr>
+    <td width="20%" height="16" bgcolor="#333333">
+    <font face="Verdana" size="2" color="#FFFFFF">'.$sort_name.'Location</font></td>
+    <td width="14%" height="16" bgcolor="#333333">
+    <font face="Verdana" size="2" color="#FFFFFF">'.$sort_phone.'Phone No.</font></td>
+    <td width="43%" height="16" bgcolor="#333333">
+    <font face="Verdana" size="2" color="#FFFFFF">'.$sort_address.'Address</font></td>
+    <td width="86%" height="16" bgcolor="#333333">
+    <font face="Verdana" size="2" color="#FFFFFF">&nbsp; </font></td>
+  </tr>';
+while ($set_row = mysql_fetch_array($result_limit)){
+$num_sup=$num_sup + 1;
+$customer_id =$set_row['id'];
+$customer_person =$set_row['contact_person'];
+$customer_name =$set_row['name'];
+$customer_address =$set_row['address'];
+$customer_city =$set_row['city'];
+$customer_zipcode =$set_row['zipcode'];
+$customer_phone =$set_row['phone'];
+$customer_mobile =$set_row['mobile'];
+$customer_fax =$set_row['fax'];
+$customer_email =$set_row['email'];
+$customer_info =$set_row['info'];
+
+echo'
+
+  <tr>
+    <td width="13%" height="11">
+    <p align="left"><font face="Verdana" size="2"> '.$customer_name.'
+</td>
+    <td width="14%" height="11">
+    <p align="left"><font face="Verdana" size="2"> '.$customer_phone.'
+</td>
+    <td width="43%" height="11">
+    <p align="left"><font face="Verdana" size="2"> '.$customer_address.'
+</td>
+    <td width="86%" height="11">
+    <p align="center"><font face="Verdana" size="2">';
+if ($_SESSION['GPMA_type'] == 1){
+echo'    <a href="?pid=delcust&del='.$customer_id.'">Delete</a>&nbsp;&nbsp;&nbsp; ||&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="?pid=edtcust&edt='.$customer_id.'">Edit</a></font>';
+}
+echo'</td>
+  </tr>';}
+echo'
+</table>';
+$next=$limit+$num_sup;
+if ($next < $num_total ){echo '<a href="?pid=c_list&sort='.$sort,'&limit='.$next.'" style="position: absolute; left: 95%; 
+top: 95%; width: 10; font-family: Verdana; font-size: 12px"><font color= "000000">
+Next </a></p>';}
+$pre=$limit-25;
+if ($start > 0 ){echo '<a href="?pid=c_list&sort='.$sort,'&limit='.$pre.'" style="position: absolute; left: 10; 
+top: 95%; width: 10; font-family: Verdana; font-size: 12px"><font color= "000000">
+Prevouse</a></p></p></p></p></p></p></p>';}
+
+?>
